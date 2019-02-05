@@ -1,0 +1,69 @@
+* {
+	font-family: 'Oswald', sans-serif;
+}
+
+.Oswald {
+	font-family: 'Oswald', sans-serif;
+}
+
+.Fredericka {
+	font-family: 'Fredericka the Great', sans-serif;
+
+}
+
+.cactus {
+	background-color: #5C615A;
+}
+
+.lawngreen {
+	background-color: #7BCE00;
+}
+
+.charcoal {
+	background-color: #3C3C3C;
+}
+
+.norway {
+	background-color: #A2AA9D;
+}
+
+.norwayText {
+	color: #A2AA9D;
+}
+
+.limeade {
+	background-color: #5B9703;
+}
+
+.romance {
+	background-color: #F1EFE9;
+}
+
+.pizzaBackground {
+	background-image: url(Images/pizzaBackground.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+ol{height:400px;}
+ol{overflow-y:scroll;}
+
+::-webkit-scrollbar {
+  	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  	background: hidden; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  	background: #7D817B;
+  	border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  	background: #5C615A; 
+}
