@@ -40,13 +40,22 @@
 }
 
 .pizzaBackground {
-	background-image: url(Images/pizzaBackground.jpg);
+	background-image: url(Images/pizzaPlaza.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-ol{height:400px;}
-ol{overflow-y:scroll;}
+ol {
+	height:400px;
+	overflow-y:scroll;
+	margin-inline-start: 40px;
+	margin-inline-end: 40px;
+	padding-inline-start: 0px;
+}
+
+ol h1 {
+	margin: 0;
+}
 
 ::-webkit-scrollbar {
   	width: 10px;
@@ -54,7 +63,7 @@ ol{overflow-y:scroll;}
 
 /* Track */
 ::-webkit-scrollbar-track {
-  	background: hidden; 
+  	background: none; 
 }
  
 /* Handle */
@@ -65,5 +74,5 @@ ol{overflow-y:scroll;}
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  	background: #5C615A; 
+  	background: #7D817B; 
 }
