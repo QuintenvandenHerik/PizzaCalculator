@@ -40,6 +40,67 @@ var alltoppings = [
 	{name:"Tuna", price: 0.50},
 ];
 
+function createPizzaInfo() {
+var h1 = document.createElement("h1");
+var p = document.createElement("p");
+var buttonLeft = document.createElement("button");
+var buttonRight = document.createElement("button");
+var div1 = document.createElement("div");
+var div2 = document.createElement("div");
+var div3 = document.createElement("div");
+var img = document.createElement("img");
+var lorem = document.createTextNode("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.");
+var left = document.createTextNode("◀");
+var right = document.createTextNode("▶");
+var title = document.createTextNode("Pizza Bolognese");
+
+div1.className = "w3-border";
+div1.setAttribute("id", "pizza");
+div1.appendChild(div2);
+div2.className = "w3-center";
+div2.appendChild(div3);
+div2.className = "w3-display-topleft w3-container";
+div2.appendChild(img);
+img.setAttribute("src", "Images/pizzaBolognese.jpg");
+img.setAttribute('max-height', '609px');
+img.setAttribute('max-width', '609px');
+div3.appendChild(h1);
+h1.appendChild(title)
+div3.appendChild(p);
+p.appendChild(lorem);
+div3.appendChild(buttonLeft);
+buttonLeft.className = "button w3-left";
+buttonLeft.appendChild(left);
+div3.appendChild(buttonRight);
+buttonRight.className = "button w3-right";
+buttonRight.appendChild(right);
+
+
+var element = document.getElementById("firstHalf");
+element.appendChild(div1);
+
+
+
+
+
+
+
+
+
+/*  				<div id="pizza" class="w3-dropdown-content w3-border">
+                        <div class="w3-center">
+                            <div class="w3-display-topleft w3-container">
+                                <h1>Pizza Bolognese</h1>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
+                                </p>
+                                <button class="button w3-left">◀</button>
+                                <button class="button w3-right">▶</button>
+                            </div>
+                            <img src="Images/pizza.jpg" style="max-width:609px">
+                        </div>
+                    </div>*/
+}
+
 function pizza1() {
   var x = document.getElementById("pizza1");
   if (x.className.indexOf("w3-show") == -1) {
@@ -329,34 +390,35 @@ function pizza31() {
 }
 
 
-document.getElementById("pizza1Btn").addEventListener("click", pizza1);
-document.getElementById("pizza2Btn").addEventListener("click", pizza2);
-document.getElementById("pizza3Btn").addEventListener("click", pizza3);
-document.getElementById("pizza4Btn").addEventListener("click", pizza4);
-document.getElementById("pizza5Btn").addEventListener("click", pizza5);
-document.getElementById("pizza6Btn").addEventListener("click", pizza6);
-document.getElementById("pizza7Btn").addEventListener("click", pizza7);
-document.getElementById("pizza8Btn").addEventListener("click", pizza8);
-document.getElementById("pizza9Btn").addEventListener("click", pizza9);
-document.getElementById("pizza10Btn").addEventListener("click", pizza10);
-document.getElementById("pizza11Btn").addEventListener("click", pizza11);
-document.getElementById("pizza12Btn").addEventListener("click", pizza12);
-document.getElementById("pizza13Btn").addEventListener("click", pizza13);
-document.getElementById("pizza14Btn").addEventListener("click", pizza14);
-document.getElementById("pizza15Btn").addEventListener("click", pizza15);
-document.getElementById("pizza16Btn").addEventListener("click", pizza16);
-document.getElementById("pizza17Btn").addEventListener("click", pizza17);
-document.getElementById("pizza18Btn").addEventListener("click", pizza18);
-document.getElementById("pizza19Btn").addEventListener("click", pizza19);
-document.getElementById("pizza20Btn").addEventListener("click", pizza20);
-document.getElementById("pizza21Btn").addEventListener("click", pizza21);
-document.getElementById("pizza22Btn").addEventListener("click", pizza22);
-document.getElementById("pizza23Btn").addEventListener("click", pizza23);
-document.getElementById("pizza24Btn").addEventListener("click", pizza24);
-document.getElementById("pizza25Btn").addEventListener("click", pizza25);
-document.getElementById("pizza26Btn").addEventListener("click", pizza26);
-document.getElementById("pizza27Btn").addEventListener("click", pizza27);
-document.getElementById("pizza28Btn").addEventListener("click", pizza28);
-document.getElementById("pizza29Btn").addEventListener("click", pizza29);
-document.getElementById("pizza30Btn").addEventListener("click", pizza30);
-document.getElementById("pizza31Btn").addEventListener("click", pizza31);
+document.getElementById("Kopje").addEventListener("click", createPizzaInfo);
+//document.getElementById("pizza1Btn").addEventListener("click", pizza1);
+//document.getElementById("pizza2Btn").addEventListener("click", pizza2);
+//document.getElementById("pizza3Btn").addEventListener("click", pizza3);
+//document.getElementById("pizza4Btn").addEventListener("click", pizza4);
+//document.getElementById("pizza5Btn").addEventListener("click", pizza5);
+//document.getElementById("pizza6Btn").addEventListener("click", pizza6);
+//document.getElementById("pizza7Btn").addEventListener("click", pizza7);
+//document.getElementById("pizza8Btn").addEventListener("click", pizza8);
+//document.getElementById("pizza9Btn").addEventListener("click", pizza9);
+//document.getElementById("pizza10Btn").addEventListener("click", pizza10);
+//document.getElementById("pizza11Btn").addEventListener("click", pizza11);
+//document.getElementById("pizza12Btn").addEventListener("click", pizza12);
+//document.getElementById("pizza13Btn").addEventListener("click", pizza13);
+//document.getElementById("pizza14Btn").addEventListener("click", pizza14);
+//document.getElementById("pizza15Btn").addEventListener("click", pizza15);
+//document.getElementById("pizza16Btn").addEventListener("click", pizza16);
+//document.getElementById("pizza17Btn").addEventListener("click", pizza17);
+//document.getElementById("pizza18Btn").addEventListener("click", pizza18);
+//document.getElementById("pizza19Btn").addEventListener("click", pizza19);
+//document.getElementById("pizza20Btn").addEventListener("click", pizza20);
+//document.getElementById("pizza21Btn").addEventListener("click", pizza21);
+//document.getElementById("pizza22Btn").addEventListener("click", pizza22);
+//document.getElementById("pizza23Btn").addEventListener("click", pizza23);
+//document.getElementById("pizza24Btn").addEventListener("click", pizza24);
+//document.getElementById("pizza25Btn").addEventListener("click", pizza25);
+//document.getElementById("pizza26Btn").addEventListener("click", pizza26);
+//document.getElementById("pizza27Btn").addEventListener("click", pizza27);
+//document.getElementById("pizza28Btn").addEventListener("click", pizza28);
+//document.getElementById("pizza29Btn").addEventListener("click", pizza29);
+//document.getElementById("pizza30Btn").addEventListener("click", pizza30);
+//document.getElementById("pizza31Btn").addEventListener("click", pizza31);
