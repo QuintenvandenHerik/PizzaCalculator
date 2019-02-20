@@ -1,6 +1,40 @@
+var allPizzas = [
+	{name:"Bolognese", price: 8.50},
+	{name:"Calzone Speciale", price: 8.50},
+	{name:"Carbonara", price: 8.50},
+	{name:"Diavola", price: 8.50},
+	{name:"Formaggi Pomodori", price: 8.50},
+	{name:"Funghi", price: 8.50},
+	{name:"Hawaii", price: 8.50},
+	{name:"Margherita", price: 8.50},
+	{name:"Mista di Mare", price: 8.50},
+	{name:"Mozzarella", price: 8.50},
+	{name:"Mozzarella Pesto", price: 8.50},
+	{name:"Pancetta Delicata", price: 8.50},
+	{name:"Pepperoni Salame Piccante", price: 8.50},
+	{name:"Pollo", price: 8.50},
+	{name:"Prosciutto", price: 8.50},
+	{name:"Quattro Formaggi", price: 8.50},
+	{name:"Quattro Stagioni", price: 8.50},
+	{name:"Salame", price: 8.50},
+	{name:"Salame Mozzarella Pesto", price: 8.50},
+	{name:"Speciale", price: 8.50},
+	{name:"Spinaci", price: 8.50},
+	{name:"Spinaci Ricotta", price: 8.50},
+	{name:"Tonno", price: 8.50},
+	{name:"Vegetale", price: 8.50},
+	{name:"BBQ Chicken", price: 8.50},
+	{name:"BBQ Pulled Pork", price: 8.50},
+	{name:"Beef Nachos", price: 8.50},
+	{name:"Cheese Onion", price: 8.50},
+	{name:"Double Pepperoni", price: 8.50},
+	{name:"Kebab", price: 8.50},
+	{name:"Spicy Chicken", price: 8.50},
+];
 
+console.log(allPizzas.length);
 
-var alltoppings = [
+var allToppings = [
 	{name:"Artichoke Hearts", price: 2.50},
 	{name:"Capers", price: 1.00},
 	{name:"Crème Fraîche", price: 1.00},
@@ -40,357 +74,102 @@ var alltoppings = [
 	{name:"Tuna", price: 0.50},
 ];
 
-function createPizzaInfo() {
-var h1 = document.createElement("h1");
-var p = document.createElement("p");
-var buttonLeft = document.createElement("button");
-var buttonRight = document.createElement("button");
-var div1 = document.createElement("div");
-var div2 = document.createElement("div");
-var div3 = document.createElement("div");
-var img = document.createElement("img");
-var lorem = document.createTextNode("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.");
-var left = document.createTextNode("◀");
-var right = document.createTextNode("▶");
-var title = document.createTextNode("Pizza Bolognese");
+function createPizzaList() {
+	var pizzaCounter = 0;
+	var div = document.createElement("div");
+	var title = document.createElement("h1");
+	var h1 = document.createElement("h1");
+	var nav = document.createElement("nav");
+	var ol = document.createElement("ol");
 
-div1.className = "w3-border";
-div1.setAttribute("id", "pizza");
-div1.appendChild(div2);
-div2.className = "w3-center";
-div2.appendChild(div3);
-div2.className = "w3-display-topleft w3-container";
-div2.appendChild(img);
-img.setAttribute("src", "Images/pizzaBolognese.jpg");
-img.setAttribute('max-height', '609px');
-img.setAttribute('max-width', '609px');
-div3.appendChild(h1);
-h1.appendChild(title)
-div3.appendChild(p);
-p.appendChild(lorem);
-div3.appendChild(buttonLeft);
-buttonLeft.className = "button w3-left";
-buttonLeft.appendChild(left);
-div3.appendChild(buttonRight);
-buttonRight.className = "button w3-right";
-buttonRight.appendChild(right);
+	div.appendChild(title);
+	div.setAttribute("id", "pizzaTitle");
+	div.setAttribute("class", "w3-padding-64 w3-center");
+	title.appendChild(document.createTextNode("Pizza's"));
+	title.setAttribute("class", "Oswald");
+	nav.appendChild(ol);
+	nav.setAttribute("id", "pizzaList");
+	ol.appendChild(h1);
+	h1.appendChild(document.createTextNode("Italian Pizza's"));
+	h1.setAttribute("class", "Oswald w3-black w3-block w3-center w3-padding-16 w3-xxxlarge");
 
+	allPizzas.forEach(function(pizza) {
+		pizzaCounter++;
+		console.log(pizza);
+		var li = document.createElement("li");
+		ol.appendChild(li);
+		li.setAttribute("class", "w3-button w3-black w3-block w3-hover-#626E60 w3-padding-16")
+		li.appendChild(document.createTextNode(pizza["name"]));
 
-var element = document.getElementById("firstHalf");
-element.appendChild(div1);
+		if (pizzaCounter == 24) {
+			var h1 = document.createElement("h1");
+			ol.appendChild(h1);
+			h1.appendChild(document.createTextNode("American Pizza's"));
+			h1.setAttribute("class", "Oswald w3-black w3-block w3-center w3-padding-16 w3-xxxlarge");
+		}
+	});
 
-
-
-
-
-
-
-
-
-/*  				<div id="pizza" class="w3-dropdown-content w3-border">
-                        <div class="w3-center">
-                            <div class="w3-display-topleft w3-container">
-                                <h1>Pizza Bolognese</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-                                </p>
-                                <button class="button w3-left">◀</button>
-                                <button class="button w3-right">▶</button>
-                            </div>
-                            <img src="Images/pizza.jpg" style="max-width:609px">
-                        </div>
-                    </div>*/
+	var element = document.getElementById("firstHalf");
+	element.appendChild(div);
+	element.appendChild(nav);
 }
 
-function pizza1() {
-  var x = document.getElementById("pizza1");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
+function removePizzaList() {
+ 	var title = document.getElementById("pizzaTitle");
+ 	var list = document.getElementById("pizzaList");
+ 	title.parentElement.removeChild(title);
+ 	list.parentElement.removeChild(list);
 }
 
-function pizza2() {
-  var x = document.getElementById("pizza2");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
+function createPizzaInfo($name) {
+	var h1 = document.createElement("h1");
+	var p = document.createElement("p");
+	var buttonLeft = document.createElement("button");
+	var buttonRight = document.createElement("button");
+	var div1 = document.createElement("div");
+	var div2 = document.createElement("div");
+	var div3 = document.createElement("div");
+	var img = document.createElement("img");
+	var lorem = document.createTextNode("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.");
+	var left = document.createTextNode("◀");
+	var right = document.createTextNode("▶");
+	var title = document.createTextNode($name);
+	
+	div1.className = "w3-border";
+	div1.setAttribute("id", "pizza");
+	div1.appendChild(div2);
+	div2.className = "w3-center";
+	div2.appendChild(div3);
+	div2.className = "w3-container";
+	div3.appendChild(h1);
+	h1.appendChild(title)
+	div3.appendChild(p);
+	p.appendChild(lorem);
+	div3.appendChild(img);
+	img.setAttribute("src", "Images/pizzaBolognese.jpg");
+	img.setAttribute('class', 'w3-image');
+	div3.appendChild(buttonLeft);
+	buttonLeft.className = "button w3-left";
+	buttonLeft.appendChild(left);
+	buttonLeft.setAttribute("id", "buttonLeft");
+	div3.appendChild(buttonRight);
+	buttonRight.className = "button w3-right";
+	buttonRight.appendChild(right);
+	buttonRight.setAttribute("id", "buttonRight");
+	
+	var element = document.getElementById("firstHalf");
+	element.appendChild(div1);
 }
 
-function pizza3() {
-  var x = document.getElementById("pizza3");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
+function removePizzaInfo() {
+ 	var title = document.getElementById("pizza");
+ 	title.parentElement.removeChild(title);
 }
-
-function pizza4() {
-  var x = document.getElementById("pizza4");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza5() {
-  var x = document.getElementById("pizza5");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza6() {
-  var x = document.getElementById("pizza6");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza7() {
-  var x = document.getElementById("pizza7");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza8() {
-  var x = document.getElementById("pizza8");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza9() {
-  var x = document.getElementById("pizza9");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza10() {
-  var x = document.getElementById("pizza10");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza11() {
-  var x = document.getElementById("pizza11");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza12() {
-  var x = document.getElementById("pizza12");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza13() {
-  var x = document.getElementById("pizza13");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza14() {
-  var x = document.getElementById("pizza14");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza15() {
-  var x = document.getElementById("pizza15");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza16() {
-  var x = document.getElementById("pizza16");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza17() {
-  var x = document.getElementById("pizza17");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza18() {
-  var x = document.getElementById("pizza18");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza19() {
-  var x = document.getElementById("pizza19");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza20() {
-  var x = document.getElementById("pizza20");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza21() {
-  var x = document.getElementById("pizza21");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza22() {
-  var x = document.getElementById("pizza22");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza23() {
-  var x = document.getElementById("pizza23");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza24() {
-  var x = document.getElementById("pizza24");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza25() {
-  var x = document.getElementById("pizza25");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza1() {
-  var x = document.getElementById("pizza1");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza26() {
-  var x = document.getElementById("pizza26");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza27() {
-  var x = document.getElementById("pizza27");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza28() {
-  var x = document.getElementById("pizza28");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza29() {
-  var x = document.getElementById("pizza29");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza30() {
-  var x = document.getElementById("pizza30");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
-function pizza31() {
-  var x = document.getElementById("pizza31");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-
 
 document.getElementById("Kopje").addEventListener("click", createPizzaInfo);
+document.getElementById("Kopje").addEventListener("click", removePizzaList);
+document.getElementById("redo").addEventListener("click", createPizzaList);
+document.getElementById("redo").addEventListener("click", removePizzaInfo);
 //document.getElementById("pizza1Btn").addEventListener("click", pizza1);
 //document.getElementById("pizza2Btn").addEventListener("click", pizza2);
 //document.getElementById("pizza3Btn").addEventListener("click", pizza3);

@@ -66,6 +66,10 @@
 	background-color: #5B9703;
 }
 
+#pizza div {
+	background-color: white;
+}
+
 ol {
 	height:400px;
 	overflow-y:scroll;
