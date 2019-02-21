@@ -98,7 +98,9 @@ function createPizzaList() {
 		console.log(pizza);
 		var li = document.createElement("li");
 		ol.appendChild(li);
-		li.setAttribute("class", "w3-button w3-black w3-block w3-hover-#626E60 w3-padding-16")
+		li.setAttribute("class", "w3-button w3-black w3-block w3-hover-#626E60 w3-padding-16");
+		li.setAttribute("id", pizza["name"]);
+		li.setAttribute("onclick", "createPizzaInfo(this.id), removePizzaList()");
 		li.appendChild(document.createTextNode(pizza["name"]));
 
 		if (pizzaCounter == 24) {
@@ -142,20 +144,22 @@ function createPizzaInfo($name) {
 	div2.appendChild(div3);
 	div2.className = "w3-container";
 	div3.appendChild(h1);
-	h1.appendChild(title)
+	h1.appendChild(title);
 	div3.appendChild(p);
 	p.appendChild(lorem);
 	div3.appendChild(img);
-	img.setAttribute("src", "Images/pizzaBolognese.jpg");
+	img.setAttribute("src", "Images/pizza" + $name + ".jpg");
 	img.setAttribute('class', 'w3-image');
 	div3.appendChild(buttonLeft);
 	buttonLeft.className = "button w3-left";
 	buttonLeft.appendChild(left);
 	buttonLeft.setAttribute("id", "buttonLeft");
+	buttonLeft.setAttribute("onclick", "removePizzaInfo(), createPizzaList()");
 	div3.appendChild(buttonRight);
 	buttonRight.className = "button w3-right";
 	buttonRight.appendChild(right);
 	buttonRight.setAttribute("id", "buttonRight");
+	buttonRight.setAttribute("onclick", "removePizzaInfo(), chosenPizza(" + $name + ")");
 	
 	var element = document.getElementById("firstHalf");
 	element.appendChild(div1);
@@ -166,10 +170,18 @@ function removePizzaInfo() {
  	title.parentElement.removeChild(title);
 }
 
-document.getElementById("Kopje").addEventListener("click", createPizzaInfo);
-document.getElementById("Kopje").addEventListener("click", removePizzaList);
-document.getElementById("redo").addEventListener("click", createPizzaList);
-document.getElementById("redo").addEventListener("click", removePizzaInfo);
+function chosenPizza($name) {
+	var h1 = document.createElement("h1");
+	var title = document.createTextNode($name);
+	var div = document.createElement("div");
+	div.appendChild(h1);
+	h1.appendChild(title);
+	console.log(allPizzas[1]);
+
+	var element = document.getElementById("firstHalf");
+	element.appendChild(div);
+}
+
 //document.getElementById("pizza1Btn").addEventListener("click", pizza1);
 //document.getElementById("pizza2Btn").addEventListener("click", pizza2);
 //document.getElementById("pizza3Btn").addEventListener("click", pizza3);
