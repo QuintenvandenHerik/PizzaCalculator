@@ -153,13 +153,13 @@ function createPizzaInfo($name) {
 	div3.appendChild(buttonLeft);
 	buttonLeft.className = "button w3-left";
 	buttonLeft.appendChild(left);
-	buttonLeft.setAttribute("id", "buttonLeft");
 	buttonLeft.setAttribute("onclick", "removePizzaInfo(), createPizzaList()");
 	div3.appendChild(buttonRight);
 	buttonRight.className = "button w3-right";
 	buttonRight.appendChild(right);
-	buttonRight.setAttribute("id", "buttonRight");
-	buttonRight.setAttribute("onclick", "removePizzaInfo(), chosenPizza(" + $name + ")");
+	buttonRight.setAttribute("id", $name);
+	buttonRight.setAttribute("onclick", "removePizzaInfo(), chosenPizza(this.id)");
+	console.log($name);
 	
 	var element = document.getElementById("firstHalf");
 	element.appendChild(div1);
@@ -171,12 +171,39 @@ function removePizzaInfo() {
 }
 
 function chosenPizza($name) {
+	console.log($name)
 	var h1 = document.createElement("h1");
 	var title = document.createTextNode($name);
 	var div = document.createElement("div");
+	var form = document.createElement("form");
+	var inputNormal = document.createElement("input");
+	var inputMedium = document.createElement("input");
+	var inputLarge = document.createElement("input");
+	var inputKingsize = document.createElement("input");
+	var pNormal = document.createTextNode("Normal: ");
+	var pMedium = document.createTextNode("Medium: ");
+	var pLarge = document.createTextNode("Large: ");
+	var pKingsize = document.createTextNode("Kingsize: ");
+
 	div.appendChild(h1);
 	h1.appendChild(title);
-	console.log(allPizzas[1]);
+	div.appendChild(form);
+	form.appendChild(pNormal);
+	form.appendChild(inputNormal);
+	inputNormal.setAttribute("type", "radio");
+	inputNormal.setAttribute("value", "small");
+	form.appendChild(pMedium);
+	form.appendChild(inputMedium);
+	inputMedium.setAttribute("type", "radio");
+	inputMedium.setAttribute("value", "small");
+	form.appendChild(pLarge);
+	form.appendChild(inputLarge);
+	inputLarge.setAttribute("type", "radio");
+	inputLarge.setAttribute("value", "small");
+	form.appendChild(pKingsize);
+	form.appendChild(inputKingsize);
+	inputKingsize.setAttribute("type", "radio");
+	inputKingsize.setAttribute("value", "small");
 
 	var element = document.getElementById("firstHalf");
 	element.appendChild(div);
