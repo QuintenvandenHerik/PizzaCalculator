@@ -1,35 +1,35 @@
 var allPizzas = [
 	{name:"Bolognese", price: 8.50},
-	{name:"Calzone Speciale", price: 8.50},
-	{name:"Carbonara", price: 8.50},
-	{name:"Diavola", price: 8.50},
-	{name:"Formaggi Pomodori", price: 8.50},
+	{name:"Calzone Speciale", price: 9.50},
+	{name:"Carbonara", price: 9.50},
+	{name:"Diavola", price: 9.50},
+	{name:"Formaggi Pomodori", price: 9.50},
 	{name:"Funghi", price: 8.50},
-	{name:"Hawaii", price: 8.50},
-	{name:"Margherita", price: 8.50},
-	{name:"Mista di Mare", price: 8.50},
-	{name:"Mozzarella", price: 8.50},
+	{name:"Hawaii", price: 7.50},
+	{name:"Margherita", price: 6.50},
+	{name:"Mista di Mare", price: 10.50},
+	{name:"Mozzarella", price: 8.00},
 	{name:"Mozzarella Pesto", price: 8.50},
-	{name:"Pancetta Delicata", price: 8.50},
-	{name:"Pepperoni Salame Piccante", price: 8.50},
+	{name:"Pancetta Delicata", price: 9.50},
+	{name:"Pepperoni Salame Piccante", price: 10.50},
 	{name:"Pollo", price: 8.50},
 	{name:"Prosciutto", price: 8.50},
 	{name:"Quattro Formaggi", price: 8.50},
-	{name:"Quattro Stagioni", price: 8.50},
+	{name:"Quattro Stagioni", price: 9.50},
 	{name:"Salame", price: 8.50},
-	{name:"Salame Mozzarella Pesto", price: 8.50},
+	{name:"Salame Mozzarella Pesto", price: 9.00},
 	{name:"Speciale", price: 8.50},
-	{name:"Spinaci", price: 8.50},
-	{name:"Spinaci Ricotta", price: 8.50},
-	{name:"Tonno", price: 8.50},
-	{name:"Vegetale", price: 8.50},
-	{name:"BBQ Chicken", price: 8.50},
-	{name:"BBQ Pulled Pork", price: 8.50},
-	{name:"Beef Nachos", price: 8.50},
-	{name:"Cheese Onion", price: 8.50},
-	{name:"Double Pepperoni", price: 8.50},
-	{name:"Kebab", price: 8.50},
-	{name:"Spicy Chicken", price: 8.50},
+	{name:"Spinaci", price: 7.50},
+	{name:"Spinaci Ricotta", price: 8.00},
+	{name:"Tonno", price: 6.50},
+	{name:"Vegetale", price: 7.50},
+	{name:"BBQ Chicken", price: 10.50},
+	{name:"BBQ Pulled Pork", price: 10.50},
+	{name:"Beef Nachos", price: 10.50},
+	{name:"Cheese Onion", price: 10.50},
+	{name:"Double Pepperoni", price: 10.50},
+	{name:"Kebab", price: 10.50},
+	{name:"Spicy Chicken", price: 10.50},
 ];
 
 console.log(allPizzas.length);
@@ -128,33 +128,33 @@ function createPizzaInfo($name) {
 	var p = document.createElement("p");
 	var buttonLeft = document.createElement("button");
 	var buttonRight = document.createElement("button");
-	var div1 = document.createElement("div");
-	var div2 = document.createElement("div");
-	var div3 = document.createElement("div");
+	var container = document.createElement("div");
+	var subContainer = document.createElement("div");
+	var div = document.createElement("div");
 	var img = document.createElement("img");
 	var lorem = document.createTextNode("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.");
 	var left = document.createTextNode("◀");
 	var right = document.createTextNode("▶");
 	var title = document.createTextNode($name);
 	
-	div1.className = "w3-border";
-	div1.setAttribute("id", "pizza");
-	div1.appendChild(div2);
-	div2.className = "w3-center";
-	div2.appendChild(div3);
-	div2.className = "w3-container";
-	div3.appendChild(h1);
+	container.className = "w3-border";
+	container.setAttribute("id", "pizza");
+	container.appendChild(subContainer);
+	subContainer.className = "w3-center";
+	subContainer.appendChild(div);
+	subContainer.className = "w3-container";
+	div.appendChild(h1);
 	h1.appendChild(title);
-	div3.appendChild(p);
+	div.appendChild(p);
 	p.appendChild(lorem);
-	div3.appendChild(img);
+	div.appendChild(img);
 	img.setAttribute("src", "Images/pizza" + $name + ".jpg");
 	img.setAttribute('class', 'w3-image');
-	div3.appendChild(buttonLeft);
+	div.appendChild(buttonLeft);
 	buttonLeft.className = "button w3-left";
 	buttonLeft.appendChild(left);
 	buttonLeft.setAttribute("onclick", "removePizzaInfo(), createPizzaList()");
-	div3.appendChild(buttonRight);
+	div.appendChild(buttonRight);
 	buttonRight.className = "button w3-right";
 	buttonRight.appendChild(right);
 	buttonRight.setAttribute("id", $name);
@@ -162,7 +162,7 @@ function createPizzaInfo($name) {
 	console.log($name);
 	
 	var element = document.getElementById("firstHalf");
-	element.appendChild(div1);
+	element.appendChild(container);
 }
 
 function removePizzaInfo() {
@@ -174,7 +174,6 @@ function chosenPizza($name) {
 	console.log($name)
 	var h1 = document.createElement("h1");
 	var title = document.createTextNode($name);
-	var div = document.createElement("div");
 	var form = document.createElement("form");
 	var inputNormal = document.createElement("input");
 	var inputMedium = document.createElement("input");
@@ -184,6 +183,35 @@ function chosenPizza($name) {
 	var pMedium = document.createTextNode("Medium: ");
 	var pLarge = document.createTextNode("Large: ");
 	var pKingsize = document.createTextNode("Kingsize: ");
+	var buttonLeft = document.createElement("button");
+	var buttonRight = document.createElement("button");
+	var container = document.createElement("div");
+	var subContainer = document.createElement("div");
+	var div = document.createElement("div");
+
+	var left = document.createTextNode("◀");
+	var right = document.createTextNode("▶");
+
+	container.className = "w3-border";
+	container.setAttribute("id", "pizza");
+	container.appendChild(subContainer);
+	subContainer.className = "w3-center";
+	subContainer.appendChild(div);
+	subContainer.className = "w3-container";
+
+	div.appendChild(buttonLeft);
+	buttonLeft.className = "button w3-left";
+	buttonLeft.appendChild(left);
+	buttonLeft.setAttribute("id", $name);
+	buttonLeft.setAttribute("onclick", "removeChosenPizza(), createPizzaInfo(this.id)");
+	div.appendChild(buttonRight);
+	buttonRight.className = "button w3-right";
+	buttonRight.appendChild(right);
+	buttonRight.setAttribute("id", $name);
+	buttonRight.setAttribute("onclick", "removeChosenPizza()");
+	
+	var element = document.getElementById("firstHalf");
+	element.appendChild(container);
 
 	div.appendChild(h1);
 	h1.appendChild(title);
@@ -206,7 +234,12 @@ function chosenPizza($name) {
 	inputKingsize.setAttribute("value", "small");
 
 	var element = document.getElementById("firstHalf");
-	element.appendChild(div);
+	element.appendChild(container);
+}
+
+function removeChosenPizza() {
+ 	var title = document.getElementById("pizza");
+ 	title.parentElement.removeChild(title);
 }
 
 //document.getElementById("pizza1Btn").addEventListener("click", pizza1);
