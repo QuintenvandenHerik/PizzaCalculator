@@ -94,21 +94,22 @@ function createPizzaList() {
 	h1.setAttribute("class", "Oswald w3-black w3-block w3-center w3-padding-16 w3-xxxlarge");
 
 	allPizzas.forEach(function(pizza) {
-		pizzaCounter++;
+
 		console.log(pizza);
 		var li = document.createElement("li");
 		ol.appendChild(li);
 		li.setAttribute("class", "w3-button w3-black w3-block w3-hover-#626E60 w3-padding-16");
-		li.setAttribute("id", pizza["name"]);
+		li.setAttribute("id", pizzaCounter);
 		li.setAttribute("onclick", "createPizzaInfo(this.id), removePizzaList()");
 		li.appendChild(document.createTextNode(pizza["name"]));
 
-		if (pizzaCounter == 24) {
+		if (pizzaCounter == 23) {
 			var h1 = document.createElement("h1");
 			ol.appendChild(h1);
 			h1.appendChild(document.createTextNode("American Pizza's"));
 			h1.setAttribute("class", "Oswald w3-black w3-block w3-center w3-padding-16 w3-xxxlarge");
 		}
+		pizzaCounter++;
 	});
 
 	var element = document.getElementById("firstHalf");
@@ -123,19 +124,23 @@ function removePizzaList() {
  	list.parentElement.removeChild(list);
 }
 
-function createPizzaInfo($name) {
+function createPizzaInfo(id) {
 	var h1 = document.createElement("h1");
+	var title = document.createTextNode(allPizzas[id].name);
+	var h4 = document.createElement("h4");
+	var price = document.createTextNode("€" + allPizzas[id].price.toFixed(2));
 	var p = document.createElement("p");
-	var buttonLeft = document.createElement("button");
-	var buttonRight = document.createElement("button");
+	var lorem = document.createTextNode("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.");
+	var img = document.createElement("img");
+
 	var container = document.createElement("div");
 	var subContainer = document.createElement("div");
 	var div = document.createElement("div");
-	var img = document.createElement("img");
-	var lorem = document.createTextNode("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.");
+
+	var buttonLeft = document.createElement("button");
+	var buttonRight = document.createElement("button");
 	var left = document.createTextNode("◀");
 	var right = document.createTextNode("▶");
-	var title = document.createTextNode($name);
 	
 	container.className = "w3-border";
 	container.setAttribute("id", "pizza");
@@ -145,21 +150,23 @@ function createPizzaInfo($name) {
 	subContainer.className = "w3-container";
 	div.appendChild(h1);
 	h1.appendChild(title);
+	div.appendChild(h4);
+	h4.appendChild(price);
 	div.appendChild(p);
 	p.appendChild(lorem);
 	div.appendChild(img);
-	img.setAttribute("src", "Images/pizza" + $name + ".jpg");
+	img.setAttribute("src", "Images/pizza" + allPizzas[id].name + ".jpg");
 	img.setAttribute('class', 'w3-image');
-	div.appendChild(buttonLeft);
+	subContainer.appendChild(buttonLeft);
 	buttonLeft.className = "button w3-left";
 	buttonLeft.appendChild(left);
 	buttonLeft.setAttribute("onclick", "removePizzaInfo(), createPizzaList()");
-	div.appendChild(buttonRight);
+	subContainer.appendChild(buttonRight);
 	buttonRight.className = "button w3-right";
 	buttonRight.appendChild(right);
-	buttonRight.setAttribute("id", $name);
+	buttonRight.setAttribute("id", id);
 	buttonRight.setAttribute("onclick", "removePizzaInfo(), chosenPizza(this.id)");
-	console.log($name);
+	console.log(allPizzas[id].name);
 	
 	var element = document.getElementById("firstHalf");
 	element.appendChild(container);
@@ -170,11 +177,17 @@ function removePizzaInfo() {
  	title.parentElement.removeChild(title);
 }
 
-function chosenPizza($name) {
-	console.log($name)
+function chosenPizza(id) {
+	console.log(allPizzas[id].name);
 	var h1 = document.createElement("h1");
-	var title = document.createTextNode($name);
+	var title = document.createTextNode(allPizzas[id].name);
+	var h4 = document.createElement("h4");
+	var price = document.createTextNode("€" + allPizzas[id].price.toFixed(2));
 	var form = document.createElement("form");
+	var container = document.createElement("div");
+	var subContainer = document.createElement("div");
+	var div = document.createElement("div");
+
 	var inputNormal = document.createElement("input");
 	var inputMedium = document.createElement("input");
 	var inputLarge = document.createElement("input");
@@ -183,12 +196,9 @@ function chosenPizza($name) {
 	var pMedium = document.createTextNode("Medium: ");
 	var pLarge = document.createTextNode("Large: ");
 	var pKingsize = document.createTextNode("Kingsize: ");
+	
 	var buttonLeft = document.createElement("button");
 	var buttonRight = document.createElement("button");
-	var container = document.createElement("div");
-	var subContainer = document.createElement("div");
-	var div = document.createElement("div");
-
 	var left = document.createTextNode("◀");
 	var right = document.createTextNode("▶");
 
@@ -199,15 +209,15 @@ function chosenPizza($name) {
 	subContainer.appendChild(div);
 	subContainer.className = "w3-container";
 
-	div.appendChild(buttonLeft);
+	subContainer.appendChild(buttonLeft);
 	buttonLeft.className = "button w3-left";
 	buttonLeft.appendChild(left);
-	buttonLeft.setAttribute("id", $name);
+	buttonLeft.setAttribute("id", id);
 	buttonLeft.setAttribute("onclick", "removeChosenPizza(), createPizzaInfo(this.id)");
-	div.appendChild(buttonRight);
+	subContainer.appendChild(buttonRight);
 	buttonRight.className = "button w3-right";
 	buttonRight.appendChild(right);
-	buttonRight.setAttribute("id", $name);
+	buttonRight.setAttribute("id", id);
 	buttonRight.setAttribute("onclick", "removeChosenPizza()");
 	
 	var element = document.getElementById("firstHalf");
@@ -215,23 +225,35 @@ function chosenPizza($name) {
 
 	div.appendChild(h1);
 	h1.appendChild(title);
+	div.appendChild(h4);
+	h4.appendChild(price);
+	h4.setAttribute("id", "price");
 	div.appendChild(form);
 	form.appendChild(pNormal);
 	form.appendChild(inputNormal);
 	inputNormal.setAttribute("type", "radio");
-	inputNormal.setAttribute("value", "small");
+	inputNormal.setAttribute("name", "size");
+	inputNormal.setAttribute("value", "1");
+	inputNormal.setAttribute("checked", "checked");
+	inputNormal.setAttribute("onclick", "calculatePrice(allPizzas[" + id + "].price.toFixed(2), this.value)");
 	form.appendChild(pMedium);
 	form.appendChild(inputMedium);
 	inputMedium.setAttribute("type", "radio");
-	inputMedium.setAttribute("value", "small");
+	inputMedium.setAttribute("name", "size");
+	inputMedium.setAttribute("value", "1.2");
+	inputMedium.setAttribute("onclick", "calculatePrice(allPizzas[" + id + "].price.toFixed(2), this.value)");
 	form.appendChild(pLarge);
 	form.appendChild(inputLarge);
 	inputLarge.setAttribute("type", "radio");
-	inputLarge.setAttribute("value", "small");
+	inputLarge.setAttribute("name", "size");
+	inputLarge.setAttribute("value", "1.4");
+	inputLarge.setAttribute("onclick", "calculatePrice(allPizzas[" + id + "].price.toFixed(2), this.value)");
 	form.appendChild(pKingsize);
 	form.appendChild(inputKingsize);
 	inputKingsize.setAttribute("type", "radio");
-	inputKingsize.setAttribute("value", "small");
+	inputKingsize.setAttribute("name", "size");
+	inputKingsize.setAttribute("value", "2");
+	inputKingsize.setAttribute("onclick", "calculatePrice(allPizzas[" + id + "].price.toFixed(2), this.value)");
 
 	var element = document.getElementById("firstHalf");
 	element.appendChild(container);
@@ -242,34 +264,8 @@ function removeChosenPizza() {
  	title.parentElement.removeChild(title);
 }
 
-//document.getElementById("pizza1Btn").addEventListener("click", pizza1);
-//document.getElementById("pizza2Btn").addEventListener("click", pizza2);
-//document.getElementById("pizza3Btn").addEventListener("click", pizza3);
-//document.getElementById("pizza4Btn").addEventListener("click", pizza4);
-//document.getElementById("pizza5Btn").addEventListener("click", pizza5);
-//document.getElementById("pizza6Btn").addEventListener("click", pizza6);
-//document.getElementById("pizza7Btn").addEventListener("click", pizza7);
-//document.getElementById("pizza8Btn").addEventListener("click", pizza8);
-//document.getElementById("pizza9Btn").addEventListener("click", pizza9);
-//document.getElementById("pizza10Btn").addEventListener("click", pizza10);
-//document.getElementById("pizza11Btn").addEventListener("click", pizza11);
-//document.getElementById("pizza12Btn").addEventListener("click", pizza12);
-//document.getElementById("pizza13Btn").addEventListener("click", pizza13);
-//document.getElementById("pizza14Btn").addEventListener("click", pizza14);
-//document.getElementById("pizza15Btn").addEventListener("click", pizza15);
-//document.getElementById("pizza16Btn").addEventListener("click", pizza16);
-//document.getElementById("pizza17Btn").addEventListener("click", pizza17);
-//document.getElementById("pizza18Btn").addEventListener("click", pizza18);
-//document.getElementById("pizza19Btn").addEventListener("click", pizza19);
-//document.getElementById("pizza20Btn").addEventListener("click", pizza20);
-//document.getElementById("pizza21Btn").addEventListener("click", pizza21);
-//document.getElementById("pizza22Btn").addEventListener("click", pizza22);
-//document.getElementById("pizza23Btn").addEventListener("click", pizza23);
-//document.getElementById("pizza24Btn").addEventListener("click", pizza24);
-//document.getElementById("pizza25Btn").addEventListener("click", pizza25);
-//document.getElementById("pizza26Btn").addEventListener("click", pizza26);
-//document.getElementById("pizza27Btn").addEventListener("click", pizza27);
-//document.getElementById("pizza28Btn").addEventListener("click", pizza28);
-//document.getElementById("pizza29Btn").addEventListener("click", pizza29);
-//document.getElementById("pizza30Btn").addEventListener("click", pizza30);
-//document.getElementById("pizza31Btn").addEventListener("click", pizza31);
+function calculatePrice(oldPrice, multiplier) {
+	var newPrice = oldPrice * multiplier;
+ 	var price = "€" + newPrice.toFixed(2);
+ 	document.getElementById("price").innerHTML = price;
+}
