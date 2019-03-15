@@ -39,6 +39,10 @@
 	background-color: #F1EFE9;
 }
 
+.mediumCarmineText {
+	color: #af473c;
+}
+
 .pizzaBackground {
 	background-image: url(Images/pizzaPlaza.jpg);
 	background-repeat: no-repeat;
@@ -68,9 +72,19 @@
 
 #pizza div {
 	background-color: white;
+	height: 700px;
 }
 
-ol {
+#pizza div div {
+	height: 623px;
+}
+
+#pizzaInfoLorem {
+	height: 180px;
+	overflow-y:scroll;
+}
+
+ul {
 	height:400px;
 	overflow-y:scroll;
 	margin-inline-start: 40px;
@@ -78,7 +92,15 @@ ol {
 	padding-inline-start: 0px;
 }
 
-ol h1 {
+#toppingList {
+	height:471px;
+}
+
+.chosenTopping {
+	margin-right: 5px;
+}
+
+ul h1 {
 	margin: 0;
 }
 
